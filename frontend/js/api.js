@@ -2,7 +2,12 @@
  * CareerConnect - Core API Client & Frontend Utilities
  */
 
-const API_BASE = '/api';
+// Configure Render backend URL here if not using Vercel rewrites:
+// Leave empty ('') if testing locally or using vercel.json rewrites.
+const RENDER_BACKEND_URL = ''; // e.g. 'https://careerconnect-api.onrender.com'
+const API_BASE = (RENDER_BACKEND_URL && !['localhost', '127.0.0.1'].includes(window.location.hostname))
+  ? `${RENDER_BACKEND_URL.replace(/\/$/, '')}/api`
+  : '/api';
 
 // Token Management
 const AuthToken = {
