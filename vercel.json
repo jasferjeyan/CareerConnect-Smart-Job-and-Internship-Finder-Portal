@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "https://careerconnect-smart-job-and-internship.onrender.com/api/:match*"
+    }
+  ]
+}
