@@ -1,0 +1,204 @@
+/* ==========================================================================
+   CareerConnect - Responsive Media Queries
+   Mobile Phones, Tablets, and Desktop layouts (Emerald, Warm Cream, Coral Theme)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .job-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    height: 68px;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .brand-logo-img,
+  .brand-logo img {
+    height: 38px;
+    max-width: 130px;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 68px;
+    left: -100%;
+    width: 290px;
+    height: calc(100vh - 68px);
+    background: #faf7f2;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.25rem;
+    box-shadow: 0 20px 40px rgba(28, 25, 23, 0.15);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    border-right: 1px solid var(--border-subtle);
+    gap: 0.6rem;
+    overflow-y: auto;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+  
+  .nav-links a {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-links a.active {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    box-shadow: inset 2px 0 0 var(--primary);
+  }
+  
+  .search-banner {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 1.15rem;
+    border-radius: var(--radius-lg);
+  }
+  
+  .search-field {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .search-banner .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.85rem;
+  }
+  
+  .hero-section {
+    padding: 4rem 0 3.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+  
+  .hero-desc {
+    font-size: 1.08rem;
+    margin-bottom: 2rem;
+  }
+  
+  .section {
+    padding: 3.25rem 0;
+  }
+  
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .page-header-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .modal-box {
+    width: 95%;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-header, .modal-footer {
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .hero-pill {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.9rem;
+  }
+  
+  .btn {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-lg {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.98rem;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+    gap: 0.5rem;
+  }
+
+  .brand-logo-img,
+  .brand-logo img {
+    height: 32px;
+    max-width: 105px;
+  }
+
+  /* .brand-logo .logo-icon removed — logo is now an <img> tag */
+
+  .card {
+    padding: 1.25rem;
+  }
+}

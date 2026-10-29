@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Internships – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Internship Spotlight Banner -->
+      <div class="card" style="margin-bottom: 2.5rem; background: var(--gradient-brand); color: #ffffff; padding: 2.5rem; border-radius: var(--radius-lg);">
+        <div style="max-width: 700px;">
+          <span class="badge" style="background: rgba(255,255,255,0.2); color: #fff; margin-bottom: 0.75rem;">
+            🎓 Student & Graduate Exclusive
+          </span>
+          <h1 style="font-size: 2.2rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem;">
+            Summer & Winter Internships
+          </h1>
+          <p style="opacity: 0.95; font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
+            Kickstart your career with verified internships offering real-world engineering mentors, stipends, and pathways to full-time pre-placement offers (PPO).
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin: 0;">
+          All Available Internships
+        </h2>
+        <span style="color: var(--text-muted); font-size: 0.95rem;" id="jobs-count">
+          Fetching active internship roles...
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="card" style="margin-bottom: 2rem; background: #ffffff;">
+        <form id="filter-form">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="search-input">Search Internships</label>
+              <input type="text" id="search-input" class="form-control" placeholder="Role, company, or tech stack">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="location-input">Location</label>
+              <input type="text" id="location-input" class="form-control" placeholder="e.g. Remote, Bengaluru, Chennai" list="internship-locations-list">
+              <datalist id="internship-locations-list">
+                <option value="Bengaluru, Karnataka"></option>
+                <option value="Hyderabad, Telangana"></option>
+                <option value="Chennai, Tamil Nadu"></option>
+                <option value="Coimbatore, Tamil Nadu"></option>
+                <option value="Pune, Maharashtra"></option>
+                <option value="Mumbai, Maharashtra"></option>
+                <option value="Delhi, India"></option>
+                <option value="Noida, Uttar Pradesh"></option>
+                <option value="Gurugram, Haryana"></option>
+                <option value="Kochi, Kerala"></option>
+                <option value="Mysuru, Karnataka"></option>
+                <option value="Ahmedabad, Gujarat"></option>
+                <option value="Jaipur, Rajasthan"></option>
+                <option value="Kolkata, West Bengal"></option>
+                <option value="Hosur, Tamil Nadu"></option>
+                <option value="Remote, India"></option>
+              </datalist>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="category-filter">Category</label>
+              <select id="category-filter" class="form-control">
+                <option value="All">All Categories</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Data Science & AI">Data Science & AI</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="DevOps & Cloud">DevOps & Cloud</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Quality Assurance & Testing">Quality Assurance & Testing</option>
+                <option value="Networking & Systems">Networking & Systems</option>
+                <option value="Marketing & Sales">Marketing & Sales</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="mode-filter">Workplace Mode</label>
+              <select id="mode-filter" class="form-control">
+                <option value="All">All Modes</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Onsite">Onsite</option>
+              </select>
+            </div>
+
+            <!-- Hidden or disabled type filter locked to Internship -->
+            <input type="hidden" id="type-filter" value="Internship">
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="sort-filter">Sort By</label>
+              <select id="sort-filter" class="form-control">
+                <option value="newest">Newest First</option>
+                <option value="deadline">Application Deadline</option>
+              </select>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem;">
+              <button type="submit" id="apply-filters-btn" class="btn btn-primary" style="flex: 1; padding: 0.75rem;">
+                Filter
+              </button>
+              <button type="button" class="btn btn-outline" style="padding: 0.75rem;" onclick="clearFilters()" title="Reset">
+                ↺
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Jobs Grid -->
+      <div class="job-grid" id="jobs-container"></div>
+
+      <!-- Pagination -->
+      <div id="pagination-container"></div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/jobs.js"></script>
+</body>
+</html>
+

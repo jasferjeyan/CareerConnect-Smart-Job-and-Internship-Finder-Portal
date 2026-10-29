@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Applications – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+            My Job Applications
+          </h1>
+          <p style="color: var(--text-muted);" id="applications-count">
+            Loading your submitted applications...
+          </p>
+        </div>
+
+        <a href="/jobs.html" class="btn btn-primary btn-sm">+ Apply for More Jobs</a>
+      </div>
+
+      <div id="applications-container">
+        <!-- Rendered by applications.js -->
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/applications.js"></script>
+</body>
+</html>
+

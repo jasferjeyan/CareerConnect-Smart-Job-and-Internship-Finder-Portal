@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerConnect – Job and Internship Finder Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header id="main-header"></header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          ✨ The Smart Portal for Students, Fresh Graduates & Employers
+        </div>
+        <h1 class="hero-title">
+          Find Your Next <span>Career Opportunity</span>
+        </h1>
+        <p class="hero-desc">
+          Discover handpicked internships, fresher roles, and engineering jobs tailored to your skills. Build your profile, upload your resume, and connect with top tech teams.
+        </p>
+
+        <!-- Search Banner -->
+        <div class="search-banner">
+          <div class="search-field">
+            <span class="icon">🔍</span>
+            <input type="text" id="home-search-keyword" placeholder="Job title, keywords, or skills (e.g. React, Python)">
+          </div>
+          <div class="search-field">
+            <span class="icon">📍</span>
+            <input type="text" id="home-search-location" placeholder="City (e.g. Bengaluru, Chennai, Remote)" list="home-locations-list">
+            <datalist id="home-locations-list">
+              <option value="Bengaluru, Karnataka"></option>
+              <option value="Hyderabad, Telangana"></option>
+              <option value="Chennai, Tamil Nadu"></option>
+              <option value="Coimbatore, Tamil Nadu"></option>
+              <option value="Pune, Maharashtra"></option>
+              <option value="Mumbai, Maharashtra"></option>
+              <option value="Delhi, India"></option>
+              <option value="Noida, Uttar Pradesh"></option>
+              <option value="Gurugram, Haryana"></option>
+              <option value="Kochi, Kerala"></option>
+              <option value="Mysuru, Karnataka"></option>
+              <option value="Ahmedabad, Gujarat"></option>
+              <option value="Jaipur, Rajasthan"></option>
+              <option value="Kolkata, West Bengal"></option>
+              <option value="Hosur, Tamil Nadu"></option>
+              <option value="Remote, India"></option>
+            </datalist>
+          </div>
+          <button class="btn btn-primary" id="home-search-btn">Find Jobs</button>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+          <a href="/jobs.html" class="btn btn-primary btn-lg">Browse All Jobs</a>
+          <a href="/internships.html" class="btn btn-secondary btn-lg">Explore Internships 🎓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Job Categories Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Popular Job Categories</h2>
+        <p class="section-subtitle">
+          Explore specialized opportunities spanning software engineering, data science, product design, and cloud systems.
+        </p>
+
+        <div class="category-grid">
+          <a href="/jobs.html?category=Software+Engineering" class="category-card">
+            <div class="category-icon">💻</div>
+            <h3 class="category-name">Software Engineering</h3>
+            <p class="category-count">Frontend, Backend & Full-Stack</p>
+          </a>
+
+          <a href="/jobs.html?category=Data+Science+%26+AI" class="category-card">
+            <div class="category-icon">📊</div>
+            <h3 class="category-name">Data Science & AI</h3>
+            <p class="category-count">ML, Analytics & Python Roles</p>
+          </a>
+
+          <a href="/jobs.html?category=UI%2FUX+Design" class="category-card">
+            <div class="category-icon">🎨</div>
+            <h3 class="category-name">UI/UX Design</h3>
+            <p class="category-count">Figma, Product Design & Research</p>
+          </a>
+
+          <a href="/jobs.html?category=DevOps+%26+Cloud" class="category-card">
+            <div class="category-icon">☁️</div>
+            <h3 class="category-name">DevOps & Cloud</h3>
+            <p class="category-count">AWS, Docker & Kubernetes</p>
+          </a>
+
+          <a href="/jobs.html?category=Marketing+%26+Sales" class="category-card">
+            <div class="category-icon">📈</div>
+            <h3 class="category-name">Marketing & Growth</h3>
+            <p class="category-count">SEO, Content & Community</p>
+          </a>
+
+          <a href="/internships.html" class="category-card" style="border: 1px dashed var(--primary); background: var(--primary-light);">
+            <div class="category-icon" style="background: #ffffff; color: var(--primary);">🎓</div>
+            <h3 class="category-name">Summer & Winter Internships</h3>
+            <p class="category-count">Stipend-backed roles for students</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured & Recently Posted Opportunities Section -->
+    <section class="section" style="background: #ffffff; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 class="section-title" style="text-align: left; margin: 0;">Featured & Recent Openings</h2>
+            <p style="color: var(--text-muted); margin: 0.25rem 0 0;">Handpicked positions actively hiring right now.</p>
+          </div>
+          <a href="/jobs.html" class="btn btn-outline btn-sm">View All Listings &rarr;</a>
+        </div>
+
+        <div class="job-grid" id="home-featured-jobs">
+          <!-- Dynamically populated from MongoDB -->
+          <div style="grid-column: 1/-1; text-align: center; padding: 2.5rem; color: var(--text-muted);">
+            Loading live opportunities from database...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How the Platform Works Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">How CareerConnect Works</h2>
+        <p class="section-subtitle">
+          A seamless 3-step pathway connecting job seekers with industry leaders.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div class="card" style="text-align: center; padding: 2.5rem 1.5rem;">
+            <div style="width: 58px; height: 58px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              1
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">Build Your Profile</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Sign up as a student or graduate. Add your college, graduation year, technical skills, and upload your PDF resume.
+            </p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: 2.5rem 1.5rem;">
+            <div style="width: 58px; height: 58px; border-radius: 50%; background: var(--secondary-light); color: var(--secondary); font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              2
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">Match & Apply</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Our skill recommendation algorithm scores jobs against your profile. Apply with 1 click using your uploaded resume.
+            </p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: 2.5rem 1.5rem;">
+            <div style="width: 58px; height: 58px; border-radius: 50%; background: var(--success-bg); color: var(--success); font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              3
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">Track & Succeed</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Employers review candidate resumes and update application statuses (Applied, Shortlisted, Selected) in real time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="section" style="background: var(--gradient-brand); color: #ffffff; text-align: center;">
+      <div class="container container-narrow">
+        <h2 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">
+          Ready to Accelerate Your Career?
+        </h2>
+        <p style="font-size: 1.15rem; opacity: 0.95; margin-bottom: 2.5rem; line-height: 1.6;">
+          Join thousands of students and leading employers on CareerConnect today. Create your free account or hire exceptional talent.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="/register.html?role=student" class="btn btn-secondary btn-lg" style="background:#ffffff; color:var(--primary); font-weight:700;">
+            Register as Student
+          </a>
+          <a href="/register.html?role=employer" class="btn btn-outline btn-lg" style="border-color:#ffffff; color:#ffffff; font-weight:700;">
+            Post Jobs as Employer
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="main-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Hero search button
+      const searchBtn = document.getElementById('home-search-btn');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          const keyword = document.getElementById('home-search-keyword').value.trim();
+          const location = document.getElementById('home-search-location').value.trim();
+          window.location.href = `/jobs.html?search=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`;
+        });
+      }
+
+      // Load 6 featured jobs on home page
+      try {
+        const res = await apiRequest('/jobs?limit=6&sort=newest');
+        const container = document.getElementById('home-featured-jobs');
+        if (container && res.jobs && res.jobs.length > 0) {
+          container.innerHTML = res.jobs.map(job => `
+            <div class="job-card">
+              <div>
+                <div class="job-card-header">
+                  <div>
+                    <h3 class="job-title">${escapeHtml(job.title)}</h3>
+                    <div class="company-name">${escapeHtml(job.companyName)}</div>
+                  </div>
+                  <span class="badge badge-primary">${escapeHtml(job.jobType)}</span>
+                </div>
+                <div class="job-meta-list">
+                  <span class="job-meta-item">📍 ${escapeHtml(job.location)}</span>
+                  <span class="job-meta-item">🏢 ${escapeHtml(job.workplaceMode)}</span>
+                  <span class="job-meta-item">🎓 ${escapeHtml(job.experienceLevel)}</span>
+                </div>
+                <div class="skills-wrap">
+                  ${(job.requiredSkills || []).slice(0, 4).map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('')}
+                </div>
+              </div>
+              <div class="job-card-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+                <span class="job-salary">${escapeHtml(job.salary || 'Not Disclosed')}</span>
+                <div style="display:flex; gap:0.5rem; align-items:center;">
+                  <a href="/job-details.html?id=${job._id}" class="btn btn-outline btn-sm">
+                    Details
+                  </a>
+                  <a href="/job-details.html?id=${job._id}#apply" class="btn btn-primary btn-sm">
+                    Apply Now &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        console.warn('Failed to load featured jobs on home page:', err);
+      }
+    });
+  </script>
+</body>
+</html>
+

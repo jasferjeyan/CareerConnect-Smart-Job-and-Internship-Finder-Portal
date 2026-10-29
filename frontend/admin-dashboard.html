@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Admin Top Heading -->
+      <div style="margin-bottom: 2rem;">
+        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">System Control Console</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+          Administrator Portal
+        </h1>
+        <p style="color: var(--text-muted);">
+          Platform-wide metrics, registered user moderation, and job listing oversight.
+        </p>
+      </div>
+
+      <!-- Admin Platform Statistics -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">👨‍🎓</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-admin-students">0</div>
+            <div class="stat-label">Registered Students</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--secondary-light); color: var(--secondary);">🏢</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-admin-employers">0</div>
+            <div class="stat-label">Registered Employers</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--success-bg); color: var(--success);">📋</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-admin-jobs">0</div>
+            <div class="stat-label">Total Job Listings</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--info-bg); color: var(--info);">📨</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-admin-apps">0</div>
+            <div class="stat-label">Total Applications</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs / Sections -->
+      <!-- Section 1: User Management -->
+      <div class="card" style="margin-bottom: 3rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0;">
+              User Accounts Management
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0 0;">
+              Monitor students and employers, deactivate suspicious accounts, or remove users.
+            </p>
+          </div>
+
+          <!-- User Filters -->
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input type="text" id="admin-user-search" class="form-control" placeholder="Search by name or email" style="width: 220px;">
+            <select id="admin-user-role-filter" class="form-control" style="width: auto;">
+              <option value="All">All Roles</option>
+              <option value="student">Students</option>
+              <option value="employer">Employers</option>
+              <option value="admin">Admins</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>User Name</th>
+                <th>Email Address</th>
+                <th>Role</th>
+                <th>Joined Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-users-table">
+              <tr><td colspan="6" style="text-align:center; padding:1.5rem; color:var(--text-muted);">Loading user records...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 2: Job Moderation -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0;">
+              Job Listing Moderation
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0 0;">
+              Review all public openings across employers and take down invalid or expired posts.
+            </p>
+          </div>
+
+          <!-- Job Filters -->
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <input type="text" id="admin-job-search" class="form-control" placeholder="Search title or company" style="width: 220px;">
+            <select id="admin-job-status-filter" class="form-control" style="width: auto;">
+              <option value="All">All Statuses</option>
+              <option value="Active">Active</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Job Title & Company</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Posted Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-jobs-table">
+              <tr><td colspan="6" style="text-align:center; padding:1.5rem; color:var(--text-muted);">Loading job postings...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
+

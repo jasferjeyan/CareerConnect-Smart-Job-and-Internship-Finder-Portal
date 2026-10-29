@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Jobs – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+            Manage Job Listings
+          </h1>
+          <p style="color: var(--text-muted);">
+            View, edit, toggle active status, or remove jobs created by your company.
+          </p>
+        </div>
+
+        <a href="/post-job.html" class="btn btn-primary btn-sm">+ Post New Opening</a>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Job Title & Location</th>
+              <th>Type</th>
+              <th>Applicants</th>
+              <th>Created Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="manage-jobs-table-body">
+            <tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--text-muted);">Loading your listings...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/employer.js"></script>
+</body>
+</html>
+

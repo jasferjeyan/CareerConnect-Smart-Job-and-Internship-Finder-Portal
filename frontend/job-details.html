@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunity Details – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container" id="job-details-content">
+      <div style="text-align: center; padding: 4rem;">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⏳</div>
+        <p style="color: var(--text-muted);">Loading role details...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Apply Job Modal -->
+  <div class="modal-overlay" id="apply-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Submit Job Application</h3>
+        <button class="modal-close" onclick="closeApplyModal()">&times;</button>
+      </div>
+
+      <form id="apply-job-form">
+        <div class="modal-body">
+          <div style="margin-bottom: 1.25rem;">
+            <label class="form-label">Select Your Resume <span class="required">*</span></label>
+            <select id="apply-resume-select" class="form-control" required>
+              <!-- Populated dynamically with student's resumes -->
+            </select>
+
+            <!-- Notice if student hasn't uploaded a resume -->
+            <div id="no-resume-notice" style="display: none; padding: 1rem; background: var(--warning-bg); border: 1px solid #fde68a; border-radius: var(--radius-md); margin-top: 0.5rem;">
+              <div style="font-weight: 700; color: #b45309; font-size: 0.9rem; margin-bottom: 0.25rem;">
+                ⚠️ No PDF resume uploaded yet!
+              </div>
+              <p style="font-size: 0.85rem; color: #92400e; margin-bottom: 0.6rem;">
+                You must have an uploaded resume to apply for positions on CareerConnect.
+              </p>
+              <a href="/resume-upload.html" target="_blank" class="btn btn-outline btn-sm" style="background:#fff;">
+                Upload a Resume Now &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="apply-cover-letter">
+              Cover Letter / Introduction Note <span style="font-weight: 400; color: var(--text-muted);">(Optional)</span>
+            </label>
+            <textarea id="apply-cover-letter" class="form-control" rows="4" placeholder="Briefly introduce yourself, highlight relevant projects, and explain why you're a strong fit for this position..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-sm" onclick="closeApplyModal()">Cancel</button>
+          <button type="submit" id="submit-app-btn" class="btn btn-primary btn-sm">
+            Confirm & Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/job-details.js"></script>
+</body>
+</html>
+

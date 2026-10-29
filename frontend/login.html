@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – CareerConnect Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body style="background: var(--bg-page);">
+
+  <header id="main-header"></header>
+
+  <main class="section">
+    <div class="container container-narrow" style="max-width: 500px;">
+      <div class="card" style="padding: 2.5rem 2rem; box-shadow: var(--shadow-xl);">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <img src="/images/logo.png" alt="CareerConnect Logo" style="height: 48px; width: auto; object-fit: contain; margin: 0 auto 1rem; display: block;">
+          <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+            Welcome Back
+          </h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Sign in to access your jobs, applications, and dashboard
+          </p>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="login-email" class="form-control" placeholder="name@domain.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <label class="form-label" for="login-password" style="margin-bottom: 0;">Password <span class="required">*</span></label>
+            </div>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+
+          <button type="submit" id="login-btn" class="btn btn-primary btn-block" style="margin-top: 1.5rem; padding: 0.8rem;">
+            Sign In to Account
+          </button>
+        </form>
+
+        <!-- Quick Demo Credentials for Viva / Presentation Demo -->
+        <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px dashed var(--border-subtle);">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.6rem; text-transform: uppercase;">
+            ⚡ Quick Demo Logins (Viva & Testing):
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <button type="button" class="btn btn-outline btn-sm" style="background:#fff; justify-content: flex-start;" onclick="fillDemoCredentials('rahul@student.com', 'student123')">
+              👨‍🎓 Student: <strong>rahul@student.com</strong> / student123
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" style="background:#fff; justify-content: flex-start;" onclick="fillDemoCredentials('recruiter@google.com', 'employer123')">
+              🏢 Employer: <strong>recruiter@google.com</strong> / employer123
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" style="background:#fff; justify-content: flex-start;" onclick="fillDemoCredentials('admin@careerconnect.com', 'adminpassword123')">
+              🛡️ Admin: <strong>admin@careerconnect.com</strong> / adminpassword123
+            </button>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+          Don't have an account yet?
+          <a href="/register.html" style="font-weight: 700; color: var(--primary);">Create an Account &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    // Check if redirected from registration
+    const initialParams = new URLSearchParams(window.location.search);
+    if (initialParams.get('registered')) {
+      const regEmail = initialParams.get('email');
+      if (regEmail) {
+        document.getElementById('login-email').value = regEmail;
+        const pwdInput = document.getElementById('login-password');
+        if (pwdInput) pwdInput.focus();
+      }
+      showToast('Registration successful! Please sign in with your credentials.', 'success');
+    }
+
+    function fillDemoCredentials(email, pwd) {
+      document.getElementById('login-email').value = email;
+      document.getElementById('login-password').value = pwd;
+      showToast(`Filled credentials for ${email}`, 'info');
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const submitBtn = document.getElementById('login-btn');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verifying credentials...';
+
+      try {
+        const res = await apiRequest('/auth/login', {
+          method: 'POST',
+          body: { email, password }
+        });
+
+        AuthToken.set(res.token);
+        UserSession.set(res.user);
+
+        showToast(`Welcome back, ${res.user.name}!`, 'success');
+
+        // Check redirect query param
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirect = urlParams.get('redirect');
+
+        setTimeout(() => {
+          if (redirect) {
+            window.location.href = redirect;
+          } else {
+            if (res.user.role === 'student') window.location.href = '/student-dashboard.html';
+            else if (res.user.role === 'employer') window.location.href = '/employer-dashboard.html';
+            else if (res.user.role === 'admin') window.location.href = '/admin-dashboard.html';
+            else window.location.href = '/';
+          }
+        }, 800);
+      } catch (err) {
+        showToast(err.message, 'error');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In to Account';
+      }
+    });
+  </script>
+</body>
+</html>
+

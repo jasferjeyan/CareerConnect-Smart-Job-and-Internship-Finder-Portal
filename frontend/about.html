@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – CareerConnect Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="hero-section" style="padding: 4rem 0 3rem;">
+      <div class="container container-narrow">
+        <span class="hero-pill">About Our Platform</span>
+        <h1 class="hero-title">
+          Connecting Talent with <span>Opportunity</span>
+        </h1>
+        <p class="hero-desc">
+          CareerConnect is a full-stack, recruitment platform engineered to bridge the gap between ambitious college students, fresh graduates, and leading industry recruiters.
+        </p>
+      </div>
+    </section>
+
+    <!-- Platform Highlights Section -->
+    <section class="section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+          <div class="card">
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🎯</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Smart Skill Matching</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              An explainable algorithm compares a candidate's profile skills against employer requirements, displaying percentage suitability, matched skills, and recommended focus areas.
+            </p>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🔒</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Role-Based Security</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Server-side authorization ensures strict boundaries across Students, Employers, and Administrators. Resumes are protected and only accessible to verified parties.
+            </p>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">📄</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Native PDF Resume Pipeline</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Multer-powered upload system enforcing strict PDF validation, size constraints, and secure disk streaming for candidate portfolios.
+            </p>
+          </div>
+        </div>
+
+        <!-- Technology Stack Grid -->
+        <div class="card" style="padding: 2.5rem; margin-bottom: 4rem; background: #ffffff;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 0.5rem;">
+            Full-Stack Technology Architecture
+          </h2>
+          <p style="text-align: center; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem;">
+            Crafted following clean web standards, REST principles, and maintainable software patterns.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+            <div style="padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary); font-weight: 700; margin-bottom: 0.4rem;">Frontend Interface</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Semantic HTML5, CSS3 with modern CSS variables, responsive media queries, and Vanilla JavaScript DOM manipulation. No external frameworks.
+              </p>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary); font-weight: 700; margin-bottom: 0.4rem;">Backend Runtime</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Node.js runtime executing Express.js REST APIs with structured controller-service-route architecture and centralized error handling.
+              </p>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary); font-weight: 700; margin-bottom: 0.4rem;">Database Layer</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                MongoDB NoSQL document database with Mongoose schemas, compound indexes, reference populations, and duplicate constraints.
+              </p>
+            </div>
+
+            <div style="padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary); font-weight: 700; margin-bottom: 0.4rem;">Security & Storage</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                bcrypt salted hashing, signed JWT auth tokens, rate limiters, Helmet headers, and Multer multipart storage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three User Roles Overview -->
+        <div>
+          <h2 class="section-title">Designed for Three Key Personas</h2>
+          <p class="section-subtitle">
+            Providing tailored interfaces and permission barriers for every stakeholder.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="card" style="border-top: 4px solid var(--primary);">
+              <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--primary);">
+                👨‍🎓 Student / Seeker
+              </h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                <li>✓ Profile with education, skills & portfolio</li>
+                <li>✓ Upload & manage PDF resumes</li>
+                <li>✓ Search & filter jobs / internships</li>
+                <li>✓ 1-Click application submission</li>
+                <li>✓ Bookmark & save interesting openings</li>
+                <li>✓ Track stages: Applied &rarr; Shortlisted &rarr; Selected</li>
+              </ul>
+            </div>
+
+            <div class="card" style="border-top: 4px solid var(--secondary);">
+              <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--secondary);">
+                🏢 Employer
+              </h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                <li>✓ Maintain company profile and branding</li>
+                <li>✓ Post new jobs and internships</li>
+                <li>✓ Edit, close, or delete own listings</li>
+                <li>✓ Filter candidate submissions per job</li>
+                <li>✓ Review applicant profile & download resume</li>
+                <li>✓ Advance application status in real-time</li>
+              </ul>
+            </div>
+
+            <div class="card" style="border-top: 4px solid var(--warning);">
+              <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--warning);">
+                🛡️ Administrator
+              </h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                <li>✓ Secure seeded admin credentials</li>
+                <li>✓ Real-time platform statistics</li>
+                <li>✓ Moderation of registered users</li>
+                <li>✓ Deactivate or remove accounts</li>
+                <li>✓ Full job catalog oversight</li>
+                <li>✓ Remove expired or invalid postings</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employer Dashboard – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container" id="employer-stats-container">
+      <!-- Dashboard Top Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+            Employer Recruitment Hub
+          </h1>
+          <p style="color: var(--text-muted);">
+            Managing opportunities for <strong id="employer-company-name" style="color: var(--primary);">Your Company</strong>
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="/post-job.html" class="btn btn-primary btn-sm">+ Post New Opening</a>
+          <a href="/applicants.html" class="btn btn-outline btn-sm">Review Applicants</a>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">💼</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-total-jobs">0</div>
+            <div class="stat-label">Total Jobs Posted</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--success-bg); color: var(--success);">🟢</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-active-jobs">0</div>
+            <div class="stat-label">Active Listings</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--secondary-light); color: var(--secondary);">👥</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-total-applicants">0</div>
+            <div class="stat-label">Total Applicants</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two Tables Grid: Recent Job Postings & Recent Applications -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <!-- Recent Postings -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Recent Job Postings</h3>
+            <a href="/manage-jobs.html" class="btn btn-outline btn-sm">Manage All Listings &rarr;</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Job Title & Location</th>
+                  <th>Type</th>
+                  <th>Date Posted</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="employer-recent-jobs">
+                <tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Applications -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Recent Candidate Submissions</h3>
+            <a href="/applicants.html" class="btn btn-primary btn-sm">View All Candidates &rarr;</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Applicant</th>
+                  <th>Target Position</th>
+                  <th>Status</th>
+                  <th>Review</th>
+                </tr>
+              </thead>
+              <tbody id="employer-recent-applicants">
+                <tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-muted);">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/employer.js"></script>
+</body>
+</html>
+

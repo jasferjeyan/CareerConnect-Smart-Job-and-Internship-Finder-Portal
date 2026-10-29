@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Jobs & Opportunities – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Page Banner -->
+      <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.35rem;">
+          Explore Career Opportunities
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem;" id="jobs-count">
+          Showing matching positions from top companies...
+        </p>
+      </div>
+
+      <!-- Advanced Filter Form -->
+      <div class="card" style="margin-bottom: 2.5rem; background: #ffffff; border-color: var(--primary-border);">
+        <form id="filter-form">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: flex-end;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="search-input">Search Keywords</label>
+              <input type="text" id="search-input" class="form-control" placeholder="Title, company, or skills">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="location-input">Location</label>
+              <input type="text" id="location-input" class="form-control" placeholder="e.g. Bengaluru, Chennai, Remote" list="locations-list">
+              <datalist id="locations-list">
+                <option value="Bengaluru, Karnataka"></option>
+                <option value="Hyderabad, Telangana"></option>
+                <option value="Chennai, Tamil Nadu"></option>
+                <option value="Coimbatore, Tamil Nadu"></option>
+                <option value="Pune, Maharashtra"></option>
+                <option value="Mumbai, Maharashtra"></option>
+                <option value="Delhi, India"></option>
+                <option value="Noida, Uttar Pradesh"></option>
+                <option value="Gurugram, Haryana"></option>
+                <option value="Kochi, Kerala"></option>
+                <option value="Mysuru, Karnataka"></option>
+                <option value="Ahmedabad, Gujarat"></option>
+                <option value="Jaipur, Rajasthan"></option>
+                <option value="Kolkata, West Bengal"></option>
+                <option value="Hosur, Tamil Nadu"></option>
+                <option value="Remote, India"></option>
+              </datalist>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="category-filter">Category</label>
+              <select id="category-filter" class="form-control">
+                <option value="All">All Categories</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Data Science & AI">Data Science & AI</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="DevOps & Cloud">DevOps & Cloud</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Quality Assurance & Testing">Quality Assurance & Testing</option>
+                <option value="Networking & Systems">Networking & Systems</option>
+                <option value="Marketing & Sales">Marketing & Sales</option>
+                <option value="Product Management">Product Management</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="type-filter">Job Type</label>
+              <select id="type-filter" class="form-control">
+                <option value="All">All Job Types</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Internship">Internship</option>
+                <option value="Contract">Contract</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="mode-filter">Workplace Mode</label>
+              <select id="mode-filter" class="form-control">
+                <option value="All">All Modes</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Onsite">Onsite</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="sort-filter">Sort By</label>
+              <select id="sort-filter" class="form-control">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="deadline">Application Deadline</option>
+              </select>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem;">
+              <button type="submit" id="apply-filters-btn" class="btn btn-primary" style="flex: 1; padding: 0.75rem;">
+                Search
+              </button>
+              <button type="button" class="btn btn-outline" style="padding: 0.75rem;" onclick="clearFilters()" title="Reset Filters">
+                ↺
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Jobs Grid -->
+      <div class="job-grid" id="jobs-container">
+        <!-- Rendered dynamically by jobs.js -->
+      </div>
+
+      <!-- Pagination Controls -->
+      <div id="pagination-container"></div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/jobs.js"></script>
+</body>
+</html>
+

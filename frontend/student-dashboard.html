@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Welcome Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+            Welcome back, <span id="student-welcome-name" style="color: var(--primary);">Student</span>! 👋
+          </h1>
+          <p style="color: var(--text-muted);">
+            Track your job applications, explore skill-matched recommendations, and manage your profile.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="/jobs.html" class="btn btn-primary btn-sm">Explore Openings</a>
+          <a href="/profile.html" class="btn btn-outline btn-sm">Edit Profile</a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📨</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-total-apps">0</div>
+            <div class="stat-label">Total Applications</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--secondary-light); color: var(--secondary);">✨</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-shortlisted">0</div>
+            <div class="stat-label">Shortlisted / Selected</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--warning-bg); color: var(--warning);">⭐</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-saved-count">0</div>
+            <div class="stat-label">Saved Bookmarks</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--success-bg); color: var(--success);">🎯</div>
+          <div class="stat-info">
+            <div class="stat-value" id="stat-skills-count">0</div>
+            <div class="stat-label">Skills on Profile</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two Column Layout: Profile Summary & Recent Applications -->
+      <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 3rem;">
+        <!-- Profile Summary Card -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Profile Summary</h3>
+            <a href="/profile.html" class="btn btn-outline btn-sm" style="font-size: 0.75rem; padding: 0.2rem 0.5rem;">Edit</a>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem;">
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">College / University:</span>
+              <strong id="summary-college">Loading...</strong>
+            </div>
+
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">Degree & Stream:</span>
+              <strong id="summary-degree">Loading...</strong>
+            </div>
+
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.8rem; display: block;">My Technical Skills:</span>
+              <div class="skills-wrap" id="summary-skills-list" style="margin-top: 0.35rem;"></div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; margin-top: 0.5rem;">
+              <a href="/resume-upload.html" class="btn btn-secondary btn-sm btn-block">
+                Manage PDF Resumes &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Applications -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Recent Applications</h3>
+            <a href="/applications.html" class="btn btn-outline btn-sm">View All &rarr;</a>
+          </div>
+
+          <div id="recent-apps-container">
+            <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+              Loading recent applications...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill-Based Recommended Jobs (Section 12) -->
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.25rem;">
+          <div>
+            <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.2rem;">
+              🎯 Recommended For You
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Calculated dynamically by matching your profile skills with active employer requirements.
+            </p>
+          </div>
+          <a href="/jobs.html" class="btn btn-outline btn-sm">All Opportunities</a>
+        </div>
+
+        <div id="recommended-jobs-container">
+          <!-- Dynamically loaded by student-dashboard.js -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/student-dashboard.js"></script>
+</body>
+</html>
+

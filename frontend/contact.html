@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – CareerConnect</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header id="main-header"></header>
+
+  <main class="section-sm">
+    <div class="container container-narrow">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span class="hero-pill">Get In Touch</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+          How Can We Help You?
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          Have questions regarding company registration, application tracking, or technical support? Drop us a message below.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 3rem;">
+        <!-- Contact Form -->
+        <div class="card" style="padding: 2.5rem;">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-main);">
+            Send a Message to Support
+          </h3>
+
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Your Full Name <span class="required">*</span></label>
+                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address <span class="required">*</span></label>
+                <input type="email" id="contact-email" class="form-control" placeholder="name@domain.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">Inquiry Subject <span class="required">*</span></label>
+              <input type="text" id="contact-subject" class="form-control" placeholder="e.g. Question regarding internship application" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message <span class="required">*</span></label>
+              <textarea id="contact-message" class="form-control" rows="5" placeholder="Please describe your query in detail..." required></textarea>
+            </div>
+
+            <button type="submit" id="contact-submit-btn" class="btn btn-primary btn-block" style="padding: 0.8rem;">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <div class="card" style="padding: 2rem;">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-main);">
+            Frequently Asked Questions (FAQ)
+          </h3>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                Q: How does the skill recommendation score work?
+              </h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                Our algorithm matches the technical skills you add in your student profile against the required skills posted by the employer. The match percentage reflects how many required qualifications you possess.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                Q: What file formats are accepted for resume upload?
+              </h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                CareerConnect strictly accepts Adobe PDF documents (.pdf) up to 5MB in file size to maintain presentation consistency and security.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                Q: Can an employer edit job requirements after posting?
+              </h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                Yes, employers can edit any of their active job listings or close them at any time from their "Manage Jobs" dashboard.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                Q: How do I test the administrator account?
+              </h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                The initial administrator is provisioned via the database seed script. You can log in using <code>admin@careerconnect.com</code> and password <code>adminpassword123</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('contact-submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      setTimeout(() => {
+        showToast('Thank you! Your message has been sent to the CareerConnect support desk.', 'success');
+        document.getElementById('contact-form').reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }, 700);
+    });
+  </script>
+</body>
+</html>
+

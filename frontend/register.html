@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register – CareerConnect Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body style="background: var(--bg-page);">
+
+  <header id="main-header"></header>
+
+  <main class="section">
+    <div class="container container-narrow" style="max-width: 580px;">
+      <div class="card" style="padding: 2.5rem 2rem; box-shadow: var(--shadow-xl);">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <img src="/images/logo.png" alt="CareerConnect Logo" style="height: 48px; width: auto; object-fit: contain; margin: 0 auto 1rem; display: block;">
+          <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">
+            Create Your Account
+          </h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Join CareerConnect to find jobs, post openings, or manage internships
+          </p>
+        </div>
+
+        <form id="register-form" novalidate>
+          <!-- Role Selector -->
+          <div class="form-group">
+            <label class="form-label">I want to join as a: <span class="required">*</span></label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <label style="border: 2px solid var(--primary); background: var(--primary-light); padding: 0.85rem; border-radius: var(--radius-md); cursor: pointer; text-align: center; font-weight: 600; display: block;" id="role-label-student">
+                <input type="radio" name="role" value="student" checked style="margin-right: 0.4rem;">
+                👨‍🎓 Student / Seeker
+              </label>
+
+              <label style="border: 2px solid var(--border-subtle); background: #ffffff; padding: 0.85rem; border-radius: var(--radius-md); cursor: pointer; text-align: center; font-weight: 600; display: block;" id="role-label-employer">
+                <input type="radio" name="role" value="employer" style="margin-right: 0.4rem;">
+                🏢 Employer
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name <span class="required">*</span></label>
+            <input type="text" id="reg-name" class="form-control" placeholder="e.g. Rahul Sharma or Priya Nair" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="reg-email" class="form-control" placeholder="name@domain.com" required>
+          </div>
+
+          <!-- Dynamic role-specific fields -->
+          <div id="student-extra-fields">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="reg-college">College / University</label>
+                <input type="text" id="reg-college" class="form-control" placeholder="e.g. IIT Bombay, Delhi University">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reg-degree">Degree / Major</label>
+                <input type="text" id="reg-degree" class="form-control" placeholder="e.g. B.Tech Computer Science">
+              </div>
+            </div>
+          </div>
+
+          <div id="employer-extra-fields" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="reg-company">Company / Organization Name <span class="required">*</span></label>
+              <input type="text" id="reg-company" class="form-control" placeholder="e.g. Google India, InnovateLabs">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-website">Website URL</label>
+              <input type="url" id="reg-website" class="form-control" placeholder="https://example.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-location">Location (City, State)</label>
+              <input type="text" id="reg-location" class="form-control" placeholder="e.g. Bengaluru, Karnataka">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-industry">Industry</label>
+              <input type="text" id="reg-industry" class="form-control" placeholder="e.g. Software Development">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-description">Company Description</label>
+              <textarea id="reg-description" class="form-control" rows="3" placeholder="Brief description of the company"></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password <span class="required">*</span></label>
+              <input type="password" id="reg-password" class="form-control" placeholder="Min 6 characters" minlength="6" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm-password">Confirm Password <span class="required">*</span></label>
+              <input type="password" id="reg-confirm-password" class="form-control" placeholder="Repeat password" minlength="6" required>
+            </div>
+          </div>
+
+          <button type="submit" id="reg-btn" class="btn btn-primary btn-block" style="margin-top: 1rem; padding: 0.8rem;">
+            Create Free Account
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+          Already have an account?
+          <a href="/login.html" style="font-weight: 700; color: var(--primary);">Sign In &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    // Handle role toggle
+    const studentRadio = document.querySelector('input[value="student"]');
+    const employerRadio = document.querySelector('input[value="employer"]');
+    const studentFields = document.getElementById('student-extra-fields');
+    const employerFields = document.getElementById('employer-extra-fields');
+    const studentLabel = document.getElementById('role-label-student');
+    const employerLabel = document.getElementById('role-label-employer');
+
+    function updateRoleUI() {
+      if (studentRadio.checked) {
+        studentFields.style.display = 'block';
+        employerFields.style.display = 'none';
+        studentLabel.style.borderColor = 'var(--primary)';
+        studentLabel.style.background = 'var(--primary-light)';
+        employerLabel.style.borderColor = 'var(--border-subtle)';
+        employerLabel.style.background = '#ffffff';
+      } else {
+        studentFields.style.display = 'none';
+        employerFields.style.display = 'block';
+        employerLabel.style.borderColor = 'var(--primary)';
+        employerLabel.style.background = 'var(--primary-light)';
+        studentLabel.style.borderColor = 'var(--border-subtle)';
+        studentLabel.style.background = '#ffffff';
+      }
+    }
+
+    studentRadio.addEventListener('change', updateRoleUI);
+    employerRadio.addEventListener('change', updateRoleUI);
+
+    // Read role from query param ?role=employer
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('role') === 'employer') {
+      employerRadio.checked = true;
+      updateRoleUI();
+    }
+
+    // Register Form Handler
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const role = document.querySelector('input[name="role"]:checked').value;
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+      // Validation
+      if (!name) {
+        showToast('Please enter your full name.', 'warning');
+        return;
+      }
+
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        showToast('Please provide a valid email address.', 'warning');
+        return;
+      }
+
+      if (!password || password.length < 6) {
+        showToast('Password must be at least 6 characters long.', 'warning');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showToast('Passwords do not match. Please verify.', 'error');
+        return;
+      }
+
+      const payload = {
+        name,
+        email,
+        password,
+        role
+      };
+
+      if (role === 'student') {
+        payload.college = document.getElementById('reg-college').value.trim();
+        payload.degree = document.getElementById('reg-degree').value.trim();
+      } else if (role === 'employer') {
+        const companyName = document.getElementById('reg-company').value.trim();
+        if (!companyName) {
+          showToast('Company / Organization Name is required.', 'warning');
+          return;
+        }
+        payload.companyName = companyName;
+        payload.website = document.getElementById('reg-website').value.trim();
+        payload.location = document.getElementById('reg-location').value.trim();
+        payload.industry = document.getElementById('reg-industry').value.trim();
+        payload.description = document.getElementById('reg-description').value.trim();
+      }
+
+      const submitBtn = document.getElementById('reg-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating account...';
+
+      try {
+        const res = await apiRequest('/auth/register', {
+          method: 'POST',
+          body: payload
+        });
+
+        AuthToken.set(res.token);
+        UserSession.set(res.user);
+
+        showToast('Account registered successfully! Redirecting to login...', 'success');
+
+        setTimeout(() => {
+          window.location.href = `/login.html?registered=1&email=${encodeURIComponent(email)}`;
+        }, 1200);
+      } catch (err) {
+        showToast(err.message, 'error');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Create Free Account';
+      }
+    });
+  </script>
+</body>
+</html>
+

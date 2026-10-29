@@ -1,0 +1,36 @@
+{
+  "name": "careerconnect-portal",
+  "version": "1.0.0",
+  "description": "CareerConnect - Job and Internship Finder Portal (Full-Stack Web Application)",
+  "main": "backend/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "seed": "node backend/seed.js"
+  },
+  "keywords": [
+    "job-portal",
+    "internships",
+    "careerconnect",
+    "express",
+    "mongodb",
+    "mongoose",
+    "fullstack"
+  ],
+  "author": "CareerConnect Team",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1"
+  }
+}
